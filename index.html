@@ -12,35 +12,42 @@
 <meta name="theme-color" content="#0969da">
 <style>
   :root {
-    --bg:           #f6f8fa;
-    --sidebar-bg:   #ffffff;
-    --border:       #d0d7de;
-    --border-light: #e8ecf0;
-    --text:         #1f2328;
-    --text-muted:   #656d76;
-    --text-dim:     #9198a1;
-    --accent:       #0969da;
-    --accent-light: #dbeafe;
-    --green:        #1a7f37;
-    --green-light:  #dcfce7;
-    --amber:        #9a6700;
-    --amber-light:  #fef9c3;
-    --amber-border: #fde68a;
-    --red:          #cf222e;
-    --red-light:    #fef2f2;
-    --red-border:   #fecaca;
-    --purple:       #8250df;
-    --purple-light: #ede9fe;
-    --tag-bg:       #f6f8fa;
-    --card-bg:      #ffffff;
-    --hover:        #f3f4f6;
-    --selected-bg:  #dbeafe;
-    --selected-border: #0969da;
-    --cfm-color:    #1a7f37;
-    --cfm-bg:       #dcfce7;
-    --iae-color:    #0969da;
-    --iae-bg:       #dbeafe;
-    --shadow:       0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+    --bg:            #eef2f7;
+    --sidebar-bg:    #ffffff;
+    --border:        #dde3ec;
+    --border-light:  #eef2f7;
+    --text:          #0f172a;
+    --text-muted:    #5a6a85;
+    --text-dim:      #94a3b8;
+    --accent:        #3b82f6;
+    --accent-dark:   #1d4ed8;
+    --green:         #059669;
+    --green-light:   #ecfdf5;
+    --green-border:  #6ee7b7;
+    --amber:         #d97706;
+    --amber-light:   #fffbeb;
+    --amber-border:  #fcd34d;
+    --red:           #dc2626;
+    --red-light:     #fef2f2;
+    --red-border:    #fca5a5;
+    --purple:        #7c3aed;
+    --purple-light:  #f5f3ff;
+    --orange:        #ea580c;
+    --orange-light:  #fff7ed;
+    --teal:          #0891b2;
+    --teal-light:    #ecfeff;
+    --indigo:        #4f46e5;
+    --cfm-color:     #059669;
+    --cfm-bg:        #ecfdf5;
+    --cfm-border:    #6ee7b7;
+    --iae-color:     #3b82f6;
+    --iae-bg:        #eff6ff;
+    --iae-border:    #93c5fd;
+    --card-bg:       #ffffff;
+    --hover:         #f1f5f9;
+    --selected-bg:   #eff6ff;
+    --shadow:        0 1px 3px rgba(15,23,42,0.08), 0 1px 2px rgba(15,23,42,0.05);
+    --shadow-md:     0 4px 12px rgba(15,23,42,0.1), 0 2px 4px rgba(15,23,42,0.06);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,208 +56,257 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-    font-size: 14px;
-    line-height: 1.5;
+    display: flex; flex-direction: column;
+    height: 100vh; overflow: hidden;
+    font-size: 14px; line-height: 1.5;
   }
 
-  /* ── HEADER ── */
+  /* ── HEADER — dark navy gradient ── */
   header {
-    background: #ffffff;
-    border-bottom: 1px solid var(--border);
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1d4ed8 100%);
+    padding: 11px 20px;
+    display: flex; align-items: center; gap: 16px;
     flex-shrink: 0;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 12px rgba(15,23,42,0.35);
     z-index: 10;
   }
 
   .logo { display: flex; align-items: center; gap: 10px; }
   .logo-icon {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, #0969da, #1d4ed8);
-    border-radius: 8px;
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     font-weight: 900; font-size: 12px; color: white; letter-spacing: -0.5px;
     flex-shrink: 0;
   }
-  .logo-text   { font-weight: 700; font-size: 15px; color: var(--text); }
-  .logo-sub    { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+  .logo-text { font-weight: 700; font-size: 15px; color: white; }
+  .logo-sub  { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 1px; }
 
-  .search-wrap { flex: 1; max-width: 380px; position: relative; }
+  .search-wrap { flex: 1; max-width: 360px; position: relative; }
   .search-wrap svg {
     position: absolute; left: 10px; top: 50%;
-    transform: translateY(-50%); color: var(--text-muted); pointer-events: none;
+    transform: translateY(-50%); color: rgba(255,255,255,0.5); pointer-events: none;
   }
   #globalSearch {
     width: 100%;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 8px;
+    color: white;
     padding: 7px 10px 7px 34px;
-    font-size: 14px;
-    outline: none;
-  }
-  #globalSearch:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(9,105,218,0.12); }
-  #globalSearch::placeholder { color: var(--text-dim); }
-
-  .header-tabs { display: flex; gap: 4px; margin-left: auto; }
-  .tab-btn {
-    padding: 6px 16px; border: 1px solid var(--border); border-radius: 6px;
-    cursor: pointer; font-size: 13px; font-weight: 600;
-    background: var(--sidebar-bg); color: var(--text-muted);
+    font-size: 13px; outline: none;
+    backdrop-filter: blur(4px);
     transition: all 0.15s;
   }
-  .tab-btn:hover  { background: var(--hover); color: var(--text); }
-  .tab-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+  #globalSearch:focus {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.5);
+  }
+  #globalSearch::placeholder { color: rgba(255,255,255,0.4); }
+
+  .header-tabs { display: flex; gap: 6px; margin-left: auto; }
+  .tab-btn {
+    padding: 6px 18px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 8px; cursor: pointer;
+    font-size: 13px; font-weight: 600;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75);
+    transition: all 0.15s;
+  }
+  .tab-btn:hover  { background: rgba(255,255,255,0.2); color: white; }
+  .tab-btn.active { background: white; border-color: white; color: #1e3a8a; }
 
   .offline-badge {
     display: flex; align-items: center; gap: 5px;
-    padding: 4px 10px; border-radius: 20px;
-    background: var(--green-light); border: 1px solid var(--green);
-    font-size: 11px; font-weight: 600; color: var(--green);
+    padding: 5px 11px; border-radius: 20px;
+    background: rgba(5,150,105,0.25);
+    border: 1px solid rgba(110,231,183,0.5);
+    font-size: 11px; font-weight: 700; color: #6ee7b7;
     white-space: nowrap;
   }
-  .offline-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .offline-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 6px #34d399;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
 
   /* ── BODY LAYOUT ── */
   .body { display: flex; flex: 1; overflow: hidden; }
 
   /* ── SIDEBAR ── */
   aside {
-    width: 230px; min-width: 230px;
+    width: 236px; min-width: 236px;
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border);
-    display: flex; flex-direction: column;
-    overflow: hidden;
+    display: flex; flex-direction: column; overflow: hidden;
   }
 
   .sidebar-filters {
-    padding: 10px 12px 8px;
-    border-bottom: 1px solid var(--border-light);
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid var(--border);
     display: flex; gap: 4px; flex-wrap: wrap;
-    background: var(--bg);
+    background: #f8fafc;
   }
   .filter-chip {
-    padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600;
-    border: 1px solid var(--border); cursor: pointer;
-    background: var(--sidebar-bg); color: var(--text-muted);
-    transition: all 0.15s;
+    padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;
+    border: 1.5px solid var(--border); cursor: pointer;
+    background: white; color: var(--text-muted);
+    transition: all 0.15s; letter-spacing: 0.2px;
   }
-  .filter-chip:hover  { border-color: var(--accent); color: var(--accent); }
-  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: white; }
-  .filter-chip.warn.active { background: var(--amber); border-color: var(--amber); color: white; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--iae-bg); }
+  .filter-chip.active { background: var(--accent); border-color: var(--accent); color: white; box-shadow: 0 2px 6px rgba(59,130,246,0.35); }
+  .filter-chip[data-filter="CFM"].active { background: var(--cfm-color); border-color: var(--cfm-color); box-shadow: 0 2px 6px rgba(5,150,105,0.35); }
+  .filter-chip[data-filter="IAE"].active { background: var(--iae-color); border-color: var(--iae-color); box-shadow: 0 2px 6px rgba(59,130,246,0.35); }
+  .filter-chip.warn.active { background: var(--amber); border-color: var(--amber); color: white; box-shadow: 0 2px 6px rgba(217,119,6,0.35); }
 
-  .aircraft-list { overflow-y: auto; flex: 1; padding: 4px 0; }
+  .aircraft-list { overflow-y: auto; flex: 1; padding: 6px 0; }
 
   .aircraft-item {
-    padding: 9px 14px; cursor: pointer;
-    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; cursor: pointer;
+    display: flex; align-items: center; gap: 9px;
     border-left: 3px solid transparent;
-    transition: background 0.1s;
+    transition: all 0.12s;
   }
-  .aircraft-item:hover    { background: var(--hover); }
-  .aircraft-item.selected { background: var(--selected-bg); border-left-color: var(--selected-border); }
-  .aircraft-item.hidden   { display: none; }
+  .aircraft-item:hover { background: var(--hover); }
+  .aircraft-item.selected {
+    background: linear-gradient(90deg, #eff6ff 0%, #f8fafc 100%);
+    border-left-color: var(--accent);
+  }
+  .aircraft-item.hidden { display: none; }
 
-  .engine-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .engine-dot.cfm { background: var(--cfm-color); }
-  .engine-dot.iae { background: var(--iae-color); }
-  .warn-dot   { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+  .engine-pill {
+    font-size: 9px; font-weight: 800; padding: 2px 5px;
+    border-radius: 4px; letter-spacing: 0.3px; flex-shrink: 0;
+  }
+  .engine-pill.cfm { background: var(--cfm-bg); color: var(--cfm-color); border: 1px solid var(--cfm-border); }
+  .engine-pill.iae { background: var(--iae-bg);  color: var(--iae-color); border: 1px solid var(--iae-border); }
+
+  .warn-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
 
   .reg-badge {
-    font-weight: 700; font-size: 13px; letter-spacing: 0.3px;
+    font-weight: 800; font-size: 13px; letter-spacing: 0.5px;
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     flex: 1; color: var(--text);
   }
   .ac-type-tag { font-size: 10px; color: var(--text-dim); font-weight: 500; }
 
   .sidebar-legend {
-    padding: 8px 14px; border-top: 1px solid var(--border-light);
+    padding: 8px 14px; border-top: 1px solid var(--border);
     display: flex; gap: 14px; font-size: 11px; color: var(--text-muted);
-    background: var(--bg);
+    background: #f8fafc;
   }
   .legend-item { display: flex; align-items: center; gap: 5px; }
+  .engine-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .engine-dot.cfm { background: var(--cfm-color); }
+  .engine-dot.iae { background: var(--iae-color); }
 
   /* ── MAIN ── */
   main { flex: 1; overflow-y: auto; padding: 24px 28px; }
 
   /* ── WELCOME ── */
-  .welcome { max-width: 720px; }
-  .welcome-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-  .welcome-sub   { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
-
-  .stats-row { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-  .stat-card {
-    flex: 1; min-width: 90px;
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; padding: 14px 16px; text-align: center;
-    box-shadow: var(--shadow);
-  }
-  .stat-num   { font-size: 26px; font-weight: 700; color: var(--text); }
-  .stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-weight: 500; }
-  .stat-num.cfm  { color: var(--cfm-color); }
-  .stat-num.iae  { color: var(--iae-color); }
-  .stat-num.warn { color: var(--amber); }
+  .welcome { max-width: 740px; }
+  .welcome-title { font-size: 22px; font-weight: 800; margin-bottom: 4px; color: var(--text); }
+  .welcome-sub   { color: var(--text-muted); margin-bottom: 22px; font-size: 14px; }
 
   .offline-info {
-    background: var(--green-light); border: 1px solid var(--green);
-    border-radius: 8px; padding: 12px 16px; margin-bottom: 20px;
+    background: var(--green-light); border: 1px solid var(--green-border);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 22px;
     font-size: 13px; color: var(--green);
   }
   .offline-info strong { font-weight: 700; }
 
+  .stats-row { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+  .stat-card {
+    flex: 1; min-width: 90px;
+    background: var(--card-bg);
+    border-radius: 10px; padding: 14px 16px; text-align: center;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--border);
+    transition: transform 0.15s;
+  }
+  .stat-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .stat-card.c1 { border-top-color: var(--accent); }
+  .stat-card.c2 { border-top-color: var(--teal); }
+  .stat-card.c3 { border-top-color: var(--indigo); }
+  .stat-card.c4 { border-top-color: var(--cfm-color); }
+  .stat-card.c5 { border-top-color: var(--iae-color); }
+  .stat-card.c6 { border-top-color: var(--amber); }
+  .stat-num   { font-size: 28px; font-weight: 800; color: var(--text); }
+  .stat-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+
   /* ── AIRCRAFT DETAIL ── */
   .ac-card { max-width: 860px; }
 
-  .ac-header { margin-bottom: 18px; }
-  .ac-reg-large {
-    font-size: 30px; font-weight: 800;
-    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    letter-spacing: 1px; color: var(--text); line-height: 1;
+  .ac-hero {
+    border-radius: 12px; padding: 20px 22px; margin-bottom: 18px;
+    position: relative; overflow: hidden;
   }
-  .ac-model-large { font-size: 15px; color: var(--text-muted); margin-top: 4px; }
-  .ac-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .ac-hero.cfm {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 60%, #047857 100%);
+  }
+  .ac-hero.iae {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #3b82f6 100%);
+  }
+  .ac-hero::after {
+    content: attr(data-model);
+    position: absolute; right: -10px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px; font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: -4px; pointer-events: none;
+    white-space: nowrap;
+  }
+  .ac-reg-large {
+    font-size: 34px; font-weight: 900;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    letter-spacing: 2px; color: white; line-height: 1;
+  }
+  .ac-model-large { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 5px; }
+  .ac-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
 
   .badge {
-    padding: 3px 10px; border-radius: 20px; font-size: 12px;
-    font-weight: 600; border: 1px solid; white-space: nowrap;
+    padding: 4px 11px; border-radius: 20px; font-size: 11px;
+    font-weight: 700; white-space: nowrap; letter-spacing: 0.2px;
   }
-  .badge.cfm       { color: var(--cfm-color); border-color: var(--cfm-color); background: var(--cfm-bg); }
-  .badge.iae       { color: var(--iae-color); border-color: var(--iae-color); background: var(--iae-bg); }
-  .badge.winglet   { color: var(--purple); border-color: var(--purple); background: var(--purple-light); }
-  .badge.wifi-yes  { color: var(--green); border-color: var(--green); background: var(--green-light); }
-  .badge.wifi-no   { color: var(--text-muted); border-color: var(--border); background: var(--tag-bg); }
-  .badge.dual      { color: #7c3aed; border-color: #7c3aed; background: var(--purple-light); }
-  .badge.confirm   { color: var(--red); border-color: var(--red-border); background: var(--red-light); }
+  .badge.cfm     { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); }
+  .badge.iae     { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); }
+  .badge.winglet { background: rgba(167,139,250,0.3); color: #e9d5ff; border: 1px solid rgba(167,139,250,0.4); }
+  .badge.wifi-yes { background: rgba(52,211,153,0.25); color: #6ee7b7; border: 1px solid rgba(52,211,153,0.4); }
+  .badge.wifi-no  { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.15); }
+  .badge.dual     { background: rgba(251,191,36,0.25); color: #fde68a; border: 1px solid rgba(251,191,36,0.4); }
+  .badge.confirm  { background: rgba(248,113,113,0.25); color: #fca5a5; border: 1px solid rgba(248,113,113,0.4); }
 
   /* ── CAUTION BANNER ── */
   .caution-banner {
-    background: var(--amber-light); border: 1px solid var(--amber-border);
-    border-radius: 8px; padding: 12px 16px; margin-bottom: 18px;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1.5px solid var(--amber-border);
+    border-radius: 10px; padding: 13px 16px; margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(217,119,6,0.1);
   }
   .caution-title {
-    font-weight: 700; color: var(--amber); font-size: 11px;
-    letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;
-    display: flex; align-items: center; gap: 6px;
+    font-weight: 800; color: var(--amber); font-size: 11px;
+    letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 7px;
   }
   .caution-item {
-    color: #854d0e; font-size: 13px; margin-top: 5px;
-    display: flex; align-items: flex-start; gap: 7px; line-height: 1.4;
+    color: #92400e; font-size: 13px; margin-top: 6px;
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+    font-weight: 500;
   }
   .caution-item::before { content: '▲'; font-size: 9px; margin-top: 3px; flex-shrink: 0; color: var(--amber); }
 
   .confirm-banner {
-    background: var(--red-light); border: 1px solid var(--red-border);
-    border-radius: 8px; padding: 12px 16px; margin-bottom: 18px;
+    background: var(--red-light); border: 1.5px solid var(--red-border);
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 18px;
   }
-  .confirm-banner p { color: var(--red); font-weight: 600; font-size: 13px; }
+  .confirm-banner p { color: var(--red); font-weight: 700; font-size: 13px; }
 
   /* ── INFO GRID ── */
   .info-grid {
@@ -258,110 +314,131 @@
     gap: 10px; margin-bottom: 20px;
   }
   .info-box {
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; padding: 12px 14px;
+    background: var(--card-bg);
+    border-radius: 10px; padding: 13px 15px;
     box-shadow: var(--shadow);
+    border-top: 3px solid var(--border);
+    transition: transform 0.12s, box-shadow 0.12s;
   }
-  .info-box-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-weight: 600; }
-  .info-box-value { font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--text); }
+  .info-box:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .info-grid .info-box:nth-child(5n+1) { border-top-color: var(--accent); }
+  .info-grid .info-box:nth-child(5n+2) { border-top-color: var(--cfm-color); }
+  .info-grid .info-box:nth-child(5n+3) { border-top-color: var(--purple); }
+  .info-grid .info-box:nth-child(5n+4) { border-top-color: var(--orange); }
+  .info-grid .info-box:nth-child(5n+5) { border-top-color: var(--teal); }
+  .info-box-label {
+    font-size: 10px; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.6px;
+    margin-bottom: 5px; font-weight: 700;
+  }
+  .info-box-value { font-size: 14px; font-weight: 700; line-height: 1.3; color: var(--text); }
   .info-box-value.mono { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
   .info-box-sub   { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
 
   /* ── SECTION TITLE ── */
   .section-title {
-    font-size: 11px; font-weight: 700; color: var(--text-muted);
-    text-transform: uppercase; letter-spacing: 0.6px;
+    font-size: 11px; font-weight: 800; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.7px;
     margin-bottom: 10px; margin-top: 22px;
     display: flex; align-items: center; gap: 8px;
   }
-  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border-light); }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
   /* ── TABLES ── */
   .data-table {
     width: 100%; border-collapse: collapse;
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; overflow: hidden;
+    background: var(--card-bg);
+    border-radius: 10px; overflow: hidden;
     margin-bottom: 20px; box-shadow: var(--shadow);
-    font-size: 13px;
+    font-size: 13px; border: 1px solid var(--border);
   }
   .data-table th {
-    background: var(--tag-bg); text-align: left;
-    padding: 9px 14px; font-size: 11px; color: var(--text-muted);
-    font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;
-    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    text-align: left; padding: 10px 14px;
+    font-size: 10px; color: var(--text-muted);
+    font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 1.5px solid var(--border);
   }
-  .data-table td {
-    padding: 10px 14px; border-bottom: 1px solid var(--border-light);
-  }
+  .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); }
   .data-table tr:last-child td { border-bottom: none; }
   .data-table td.num, .data-table th.num {
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    font-weight: 600; text-align: right;
+    font-weight: 700; text-align: right;
   }
   .data-table th.num { text-align: right; }
-  .data-table tr.highlight td { color: var(--accent); font-weight: 700; }
-  .data-table tr:hover td { background: var(--hover); }
-  .data-table tr:hover.highlight td { background: var(--selected-bg); }
+  .data-table tr.highlight td { color: var(--accent); font-weight: 800; background: var(--selected-bg); }
+  .data-table tr:not(.highlight):hover td { background: var(--hover); }
 
   /* ── NOTES ── */
   .notes-box {
     background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; padding: 14px 16px;
+    border-radius: 10px; padding: 14px 16px;
     margin-bottom: 16px; box-shadow: var(--shadow);
   }
   .notes-box p {
     color: var(--text-muted); font-size: 13px;
-    line-height: 1.6; margin-bottom: 6px;
-    padding-bottom: 6px; border-bottom: 1px solid var(--border-light);
+    line-height: 1.65; margin-bottom: 8px;
+    padding-bottom: 8px; border-bottom: 1px dashed var(--border);
+    padding-left: 10px;
+    border-left: 3px solid var(--border);
   }
   .notes-box p:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-  .notes-box strong { color: var(--text); }
+  .notes-box p:nth-child(odd) { border-left-color: var(--accent); }
+  .notes-box p:nth-child(even) { border-left-color: var(--cfm-color); }
 
   /* ── LIMITS VIEW ── */
   .limits-view { max-width: 860px; }
-  .limits-header { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .limits-sub    { color: var(--text-muted); font-size: 13px; margin-bottom: 20px; }
+  .limits-header { font-size: 22px; font-weight: 800; margin-bottom: 4px; color: var(--text); }
+  .limits-sub    { color: var(--text-muted); font-size: 13px; margin-bottom: 22px; }
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
 
   .limits-card {
     background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 8px; overflow: hidden; box-shadow: var(--shadow);
+    border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);
   }
   .limits-card-header {
-    padding: 10px 14px; background: var(--tag-bg);
-    border-bottom: 1px solid var(--border);
-    font-weight: 700; font-size: 13px;
+    padding: 11px 14px;
+    font-weight: 800; font-size: 13px;
     display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--border);
   }
+  .limits-card-header.cfm { background: linear-gradient(135deg, #064e3b, #065f46); color: white; }
+  .limits-card-header.iae { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; }
+  .limits-card-header.neutral { background: linear-gradient(135deg, #1e293b, #334155); color: white; }
+
   .engine-tag {
-    padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 800;
   }
-  .engine-tag.cfm { background: var(--cfm-bg); color: var(--cfm-color); }
-  .engine-tag.iae { background: var(--iae-bg); color: var(--iae-color); }
+  .engine-tag.cfm { background: rgba(255,255,255,0.2); color: white; }
+  .engine-tag.iae { background: rgba(255,255,255,0.2); color: white; }
 
   .lim-row {
     padding: 9px 14px; display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid var(--border-light); font-size: 13px; gap: 12px;
+    transition: background 0.1s;
   }
+  .lim-row:hover { background: var(--hover); }
   .lim-row:last-child { border-bottom: none; }
   .lim-label { color: var(--text-muted); }
-  .lim-val   { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-weight: 700; color: var(--text); white-space: nowrap; }
+  .lim-val   { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-weight: 800; color: var(--text); white-space: nowrap; }
   .lim-val.warn { color: var(--amber); }
   .lim-val.crit { color: var(--red); }
   .lim-val.ok   { color: var(--cfm-color); }
 
   .note-block {
-    background: var(--iae-bg); border: 1px solid #bfdbfe;
-    border-radius: 8px; padding: 12px 16px; margin-bottom: 16px;
+    background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+    border: 1px solid var(--iae-border);
+    border-radius: 10px; padding: 13px 16px; margin-bottom: 16px;
     font-size: 13px; color: #1e40af; line-height: 1.6;
   }
-  .note-block strong { color: #1d4ed8; }
+  .note-block strong { color: var(--accent-dark); }
 
   /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
   /* ── TOUCH FRIENDLY ── */
   @media (pointer: coarse) {
@@ -372,7 +449,7 @@
 
   /* ── NARROW ── */
   @media (max-width: 640px) {
-    aside { width: 170px; min-width: 170px; }
+    aside { width: 175px; min-width: 175px; }
     .two-col { grid-template-columns: 1fr; }
     main { padding: 16px; }
     .offline-badge span { display: none; }
@@ -398,10 +475,6 @@
   <div class="header-tabs">
     <button class="tab-btn active" onclick="switchTab('fleet')">Fleet</button>
     <button class="tab-btn" onclick="switchTab('limits')">Limits</button>
-  </div>
-  <div class="offline-badge">
-    <div class="offline-dot"></div>
-    <span>Offline Ready</span>
   </div>
 </header>
 
@@ -774,14 +847,14 @@ let selectedReg = null;
 function buildList() {
   const c = document.getElementById('aircraftList');
   c.innerHTML = '';
-  fleet.forEach(ac => {
+  [...fleet].sort((a, b) => a.reg.localeCompare(b.reg)).forEach(ac => {
     const el = document.createElement('div');
     el.className = 'aircraft-item';
     el.id = 'item-' + ac.reg.replace('-','');
     el.onclick = () => selectAircraft(ac.reg);
     const hasCaution = ac.cautions.length > 0 || ac.confirm;
     el.innerHTML = `
-      <div class="engine-dot ${ac.engine.toLowerCase()}"></div>
+      <span class="engine-pill ${ac.engine.toLowerCase()}">${ac.engine}</span>
       <div style="flex:1;min-width:0">
         <div class="reg-badge">${ac.reg}</div>
         <div class="ac-type-tag">${ac.model} · ${ac.seats}</div>
@@ -853,12 +926,12 @@ function renderWelcome() {
       </div>
 
       <div class="stats-row">
-        <div class="stat-card"><div class="stat-num">${fleet.length}</div><div class="stat-label">Total Aircraft</div></div>
-        <div class="stat-card"><div class="stat-num">${a320}</div><div class="stat-label">A320 Family</div></div>
-        <div class="stat-card"><div class="stat-num">${a321}</div><div class="stat-label">A321 Family</div></div>
-        <div class="stat-card"><div class="stat-num cfm">${cfm}</div><div class="stat-label">CFM Engines</div></div>
-        <div class="stat-card"><div class="stat-num iae">${iae}</div><div class="stat-label">IAE Engines</div></div>
-        <div class="stat-card"><div class="stat-num warn">${caut}</div><div class="stat-label">With Cautions</div></div>
+        <div class="stat-card c1"><div class="stat-num">${fleet.length}</div><div class="stat-label">Total Aircraft</div></div>
+        <div class="stat-card c2"><div class="stat-num">${a320}</div><div class="stat-label">A320 Family</div></div>
+        <div class="stat-card c3"><div class="stat-num">${a321}</div><div class="stat-label">A321 Family</div></div>
+        <div class="stat-card c4"><div class="stat-num">${cfm}</div><div class="stat-label">CFM Engines</div></div>
+        <div class="stat-card c5"><div class="stat-num">${iae}</div><div class="stat-label">IAE Engines</div></div>
+        <div class="stat-card c6"><div class="stat-num">${caut}</div><div class="stat-label">With Cautions</div></div>
       </div>
 
       <div class="section-title">All Registrations</div>
@@ -893,7 +966,7 @@ function renderAircraft(ac) {
   document.getElementById('mainContent').innerHTML = `
     <div class="ac-card">
 
-      <div class="ac-header">
+      <div class="ac-hero ${ac.engine.toLowerCase()}" data-model="${ac.model}">
         <div class="ac-reg-large">${ac.reg}</div>
         <div class="ac-model-large">${ac.model} · MSN ${ac.msn} · ${ac.prevOp}</div>
         <div class="ac-badges">
@@ -1000,7 +1073,7 @@ function renderLimits() {
       <div class="section-title">Engine EGT Limits</div>
       <div class="two-col">
         <div class="limits-card">
-          <div class="limits-card-header"><span class="engine-tag cfm">CFM</span> CFM56-5B — A320</div>
+          <div class="limits-card-header cfm"><span class="engine-tag cfm">CFM</span> CFM56-5B — A320</div>
           <div class="lim-row"><span class="lim-label">T/O & GA (all eng.) 5 min</span><span class="lim-val warn">950 °C</span></div>
           <div class="lim-row"><span class="lim-label">T/O & GA (1 eng.)</span><span class="lim-val warn">950 °C</span></div>
           <div class="lim-row"><span class="lim-label">MCT (no time limit)</span><span class="lim-val">915 °C</span></div>
@@ -1010,7 +1083,7 @@ function renderLimits() {
           <div class="lim-row"><span class="lim-label">Max N2</span><span class="lim-val">105 %</span></div>
         </div>
         <div class="limits-card">
-          <div class="limits-card-header"><span class="engine-tag iae">IAE</span> V2500-A5 — A320 / A321</div>
+          <div class="limits-card-header iae"><span class="engine-tag iae">IAE</span> V2500-A5 — A320 / A321</div>
           <div class="lim-row"><span class="lim-label">T/O & GA — A320 (5 min)</span><span class="lim-val warn">635 °C</span></div>
           <div class="lim-row"><span class="lim-label">T/O & GA — A321 (5 min)</span><span class="lim-val warn">650 °C</span></div>
           <div class="lim-row"><span class="lim-label">MCT (no time limit)</span><span class="lim-val">610 °C</span></div>
@@ -1024,7 +1097,7 @@ function renderLimits() {
       <div class="section-title">Oil Limits</div>
       <div class="two-col">
         <div class="limits-card">
-          <div class="limits-card-header"><span class="engine-tag cfm">CFM</span> Oil</div>
+          <div class="limits-card-header cfm"><span class="engine-tag cfm">CFM</span> Oil</div>
           <div class="lim-row"><span class="lim-label">Max continuous temp</span><span class="lim-val">140 °C</span></div>
           <div class="lim-row"><span class="lim-label">Max transient (15 min)</span><span class="lim-val warn">155 °C</span></div>
           <div class="lim-row"><span class="lim-label">Min start temp</span><span class="lim-val">−40 °C</span></div>
@@ -1033,7 +1106,7 @@ function renderLimits() {
           <div class="lim-row"><span class="lim-label">Min oil pressure</span><span class="lim-val">13 PSI</span></div>
         </div>
         <div class="limits-card">
-          <div class="limits-card-header"><span class="engine-tag iae">IAE</span> Oil</div>
+          <div class="limits-card-header iae"><span class="engine-tag iae">IAE</span> Oil</div>
           <div class="lim-row"><span class="lim-label">Max continuous temp</span><span class="lim-val">155 °C</span></div>
           <div class="lim-row"><span class="lim-label">Max transient (15 min)</span><span class="lim-val warn">165 °C</span></div>
           <div class="lim-row"><span class="lim-label">Min start temp</span><span class="lim-val">−40 °C</span></div>
@@ -1047,14 +1120,14 @@ function renderLimits() {
       <div class="section-title">Engine Start Rules</div>
       <div class="two-col">
         <div class="limits-card">
-          <div class="limits-card-header"><span class="engine-tag cfm">CFM</span> Start Rules</div>
+          <div class="limits-card-header cfm"><span class="engine-tag cfm">CFM</span> Start Rules</div>
           <div class="lim-row"><span class="lim-label">Cycle definition (auto)</span><span class="lim-val" style="font-size:12px">Up to 3 attempts = 1 cycle</span></div>
           <div class="lim-row"><span class="lim-label">Pause between cycles</span><span class="lim-val">20 s</span></div>
           <div class="lim-row"><span class="lim-label">Cooling after 4 failed cycles</span><span class="lim-val warn">15 min</span></div>
           <div class="lim-row"><span class="lim-label">Starter cutoff N2</span><span class="lim-val crit">&gt; 20 %</span></div>
         </div>
         <div class="limits-card">
-          <div class="limits-card-header"><span class="engine-tag iae">IAE</span> Start Rules</div>
+          <div class="limits-card-header iae"><span class="engine-tag iae">IAE</span> Start Rules</div>
           <div class="lim-row"><span class="lim-label">Cycle definition (auto)</span><span class="lim-val" style="font-size:12px">1 attempt = 1 cycle</span></div>
           <div class="lim-row"><span class="lim-label">Pause between cycles</span><span class="lim-val">15 s</span></div>
           <div class="lim-row"><span class="lim-label">Cooling after 3 failed / 4 min crank</span><span class="lim-val warn">30 min</span></div>
